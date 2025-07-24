@@ -1,0 +1,60 @@
+body {
+   font-family: 'Poppins', sans-serif;
+   background: radial-gradient(circle at top center, #1b0031, #0d001a, #05000c);
+}
+
+.navbar {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   padding: 5px;
+}
+
+.logo {
+   font-size: 24px;
+   font-weight: bold;
+   text-decoration: none;
+}
+
+.nav-menu {
+   display: flex;
+   list-style: none;
+   gap: 150px;
+
+}
+
+.nav-menu a {
+   text-decoration: none;
+   color: #ffffff;
+}
+
+.hero-intro {
+   display: flex;
+   align-items: center;
+   gap: 40px;
+   margin-top: 80px;
+}
+
+.text-box p, h1 {
+   color: #ffffff;
+}
+
+.hh1 {
+   font-size: 50px;
+}
+
+.qoute {
+   font-size: 11px;
+}
+
+.text-box p span {
+   color: #7127BA;
+}
+
+.avatar-box img {
+   filter: drop-shadow(0 0 40px rgba(183, 0, 255, 0.5));
+}
+
+.highlight {
+  color: #7127BA;
+}
