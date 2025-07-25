@@ -142,7 +142,7 @@ body {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
   user-select: none;
-  margin-bottom: 1.5rem; /* პროექტებს შორის ფასი */
+  margin-bottom: 1.5rem; 
 }
 
 .project-card:hover {
@@ -152,7 +152,7 @@ body {
 
 .project-image {
   width: 100%;
-  height: 260px;  /* უფრო მაღალი სურათი */
+  height: 260px;  
   object-fit: cover;
   display: block;
 }
@@ -163,14 +163,14 @@ body {
 
 .project-title {
   margin: 0 0 0.6rem;
-  font-size: 1.8rem;    /* ტექსტი უფრო დიდი */
+  font-size: 1.8rem;    
   font-weight: 700;
   letter-spacing: 0.02em;
 }
 
 .project-description {
   margin: 0;
-  font-size: 1.1rem;    /* უკეთ იკითხება */
+  font-size: 1.1rem;   
   line-height: 1.5;
   color: #1976d2;
 }
@@ -198,6 +198,17 @@ body {
    margin-top: 40px;
 }
 
+.techStucks img {
+   box-shadow: 0 15px 40px rgba(25, 118, 210, 0.6);
+    border-radius: 20px;
+}
+
+.techStucks img:hover {
+  transition: transform 0.7s ease, box-shadow 0.7s ease;
+   background-color: #1b0031;
+  transform: translateY(-10px);
+}
+
 
 .tech-icon {
   width: 50px;
@@ -211,11 +222,41 @@ body {
 }
 
 .contact-box-paragraph{
-   margin: 0 auto;
-   max-width: 700px;
+    color: #542779;
+    font-weight:999;
 }
 
 
+.pp1 {
+   margin: 0 auto;
+   max-width: 700px;
+   line-height: 40px;
+
+}
+
+.pp1 .span2 {
+   color: #6a3297 ;
+   font-weight: 999;
+   text-decoration: underline;
+}
+
+.git,.inst,.fb {
+   height: 30px;
+   box-shadow: 0 15px 40px rgba(68, 136, 204, 0.6);
+   background-color: #66259b;
+   border-radius: 30px;
+}
+
+
+
+.social-media {
+   display: flex;
+   margin: 0 auto;
+   max-width: 700px;
+   margin-top: 18px;
+   align-items: center;
+   gap: 18px;
+}
 
 /* Responsive */
 @media (max-width: 600px) {
