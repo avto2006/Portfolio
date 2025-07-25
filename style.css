@@ -109,3 +109,127 @@ body {
 .experience-intro {
    margin-top: 200px;
 }
+
+.myProjectText{
+   margin: 0 auto;
+   max-width: 700px;
+}
+
+.myProjects {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.myProjects {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 20px 0;
+}
+
+.project-card {
+  display: block;
+  width: 480px;       /* უფრო დიდი */
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: #fff;
+  box-shadow: 0 8px 25px rgba(25, 118, 210, 0.35);
+  text-decoration: none;
+  color: #0d47a1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  margin-bottom: 1.5rem; /* პროექტებს შორის ფასი */
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(25, 118, 210, 0.6);
+}
+
+.project-image {
+  width: 100%;
+  height: 260px;  /* უფრო მაღალი სურათი */
+  object-fit: cover;
+  display: block;
+}
+
+.project-info {
+  padding: 1.2rem 1.5rem 1.8rem;
+}
+
+.project-title {
+  margin: 0 0 0.6rem;
+  font-size: 1.8rem;    /* ტექსტი უფრო დიდი */
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.project-description {
+  margin: 0;
+  font-size: 1.1rem;    /* უკეთ იკითხება */
+  line-height: 1.5;
+  color: #1976d2;
+}
+
+
+.tech-stack-container {
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin: auto;
+}
+
+.techStuckText{
+   margin: 0 auto;
+   max-width: 700px;
+   margin-top: 150px;
+}
+
+.techStucks {
+   display: flex;
+   width: 100%;
+   justify-content: center;
+   gap: 70px;
+   flex-wrap: wrap;
+   margin-top: 40px;
+}
+
+
+.tech-icon {
+  width: 50px;
+  height: 50px;
+}
+
+.contact-box-text {
+   margin: 0 auto;
+   max-width: 700px;
+   margin-top: 150px;
+}
+
+.contact-box-paragraph{
+   margin: 0 auto;
+   max-width: 700px;
+}
+
+
+
+/* Responsive */
+@media (max-width: 600px) {
+  .project-card {
+    width: 90vw;
+  }
+  .project-image {
+    height: 220px;
+  }
+  .project-title {
+    font-size: 1.5rem;
+  }
+  .project-description {
+    font-size: 1rem;
+  }
+}
+
