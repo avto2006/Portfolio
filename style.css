@@ -9,6 +9,7 @@ body {
    cursor:  url('/YOUR_PATH/cursor.cur'), auto;
 }
 
+
 .navbar {
    display: flex;
    justify-content: space-around;
