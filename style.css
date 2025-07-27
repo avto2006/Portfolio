@@ -325,23 +325,66 @@ section {
 @media screen  and (width < 916px) {
 
    .myLogo {
-      width: 30px;
-      height: 30px;
+      width: 25px;
+      height: 25px;
    }
 
-   .nav-menu li {
-      font-size: 12px;
-      padding: 2px;
+   .navbar {
+      display: flex;
+      align-content: left;
+      width: 100%;
+      align-items: center;
+   }
+
+   
+   .avatar-box {
+       margin: 0 auto;
+       margin-left: 2vh;
+   }
+
+   .text-box {
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 15px;
+      width: 200px;
+   }
+
+   .text-wrapper {
+      margin-left: 2vh;
+   }
+
+   .hh1 {
+      font-size: 20px;
+   }
+
+   .hh2 {
+      font-size: 25px;
+      margin-left: 2vh;
+   }
+
+   .hh3 {
+      margin-left: 2vh;
+   }
+
+   .techStucks {
+       margin: 0 auto;
+       display: flex;
+       flex-wrap: wrap;
+   }
+
+  
+
+   .project-card {
+      width: 43vh;
+   }
+
+
+   .contact-box {
+      text-align: center;
+   }
+
+   .social-media {
       justify-content: center;
    }
-   
-   .navbar {
-      width: 100%;
-      box-sizing: border-box;
-      gap: 3px;
-   }
-
-   
-
 
 }
