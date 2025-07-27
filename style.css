@@ -18,7 +18,15 @@ body {
    animation: pageFade 2s ease-in forwards;
 }
 
-
+.fade-on-scroll {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+.fade-on-scroll.show {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 
 @keyframes pageFade {
@@ -138,6 +146,8 @@ section {
    color: #ffffff;
 }
 
+
+
 .description-line {
    font-size: 1rem;
    color: #ffffff;
@@ -186,6 +196,7 @@ section {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   user-select: none;
   margin-bottom: 1.5rem; 
+  border: 3px solid #1b0031;
 }
 
 .project-card:hover {
@@ -308,19 +319,29 @@ section {
    transform: translateY(-10px);
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .project-card {
-    width: 90vw;
-  }
-  .project-image {
-    height: 220px;
-  }
-  .project-title {
-    font-size: 1.5rem;
-  }
-  .project-description {
-    font-size: 1rem;
-  }
-}
 
+
+
+@media screen  and (width < 916px) {
+
+   .myLogo {
+      width: 30px;
+      height: 30px;
+   }
+
+   .nav-menu li {
+      font-size: 12px;
+      padding: 2px;
+      justify-content: center;
+   }
+   
+   .navbar {
+      width: 100%;
+      box-sizing: border-box;
+      gap: 3px;
+   }
+
+   
+
+
+}
