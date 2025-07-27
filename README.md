@@ -5,7 +5,9 @@ It showcases who I am, what I can build, and where I'm heading as a future Full-
 
 
 <img width="1864" height="974" alt="Screenshot 2025-07-27 215929" src="https://github.com/user-attachments/assets/1e249b18-ae4b-4970-a8dd-d67cf008ef63" />
+
 <img width="1875" height="963" alt="Screenshot 2025-07-27 220023" src="https://github.com/user-attachments/assets/cb5e18ee-0705-4e44-ac6b-7ed51c493808" />
+
 <img width="1872" height="971" alt="Screenshot 2025-07-27 220032" src="https://github.com/user-attachments/assets/23dd1012-b732-40a4-a7f3-56853a13becd" />
 
 
