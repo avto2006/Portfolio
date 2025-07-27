@@ -2,6 +2,10 @@ a img {
    cursor: default;
 }
 
+html {
+   scroll-behavior: smooth;
+}
+
 body {
    font-family: 'Preahvihear', sans-serif;
    background: radial-gradient(circle at top center, #1b0031, #0d001a, #05000c);
@@ -9,6 +13,19 @@ body {
    cursor:  url('/YOUR_PATH/cursor.cur'), auto;
 }
 
+.page {
+   opacity: 0;
+   animation: pageFade 2s ease-in forwards;
+}
+
+
+
+
+@keyframes pageFade {
+   to {
+      opacity: 1;
+   }
+}
 
 .navbar {
    display: flex;
@@ -16,14 +33,34 @@ body {
    align-items: center;
    padding: 5px;
    background-color: #1A0B2E;
+   width: 100%;
+   position: fixed;
+   top: 0;
+   left: 0;
+}
+
+section {
+   scroll-margin-top: 400px;
+}
+
+
+
+.navbar ul li a:hover{
+   color: #621e9a;
+   transition: 0.9s ease;
 }
 
 .logo {
    font-size: 24px;
    font-weight: bold;
    text-decoration: none;
+ 
 }
 
+.logo:hover {
+   filter: drop-shadow(0 0 12px rgba(228, 217, 232, 1.5));
+   transition: 0.9s ease;
+}
 .nav-menu {
    display: flex;
    list-style: none;
