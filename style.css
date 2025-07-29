@@ -388,3 +388,10 @@ section {
    }
 
 }
+
+@media (min-width: 481px) and (max-width: 768px) { 
+          .nav-menu {
+              justify-content: space-between;
+          }
+ }
+
