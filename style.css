@@ -252,14 +252,9 @@ section {
    margin-top: 40px;
 }
 
-.techStucks img {
-   box-shadow: 0 15px 40px rgba(25, 118, 210, 0.6);
-    border-radius: 20px;
-}
 
 .techStucks img:hover {
   transition: transform 0.7s ease, box-shadow 0.7s ease;
-   background-color: #1b0031;
   transform: translateY(-10px);
 }
 
