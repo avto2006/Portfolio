@@ -1,14 +1,16 @@
-const sections = document.querySelectorAll('.fade-on-scroll');
+document.addEventListener('DOMContentLoaded', () => {
+  const sections = document.querySelectorAll('.fade-on-scroll');
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target); 
-        }
-      });
-    }, {
-      threshold: 0.1
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+        observer.unobserve(entry.target); 
+      }
     });
+  }, {
+    threshold: 0.1
+  });
 
-    sections.forEach(section => observer.observe(section));
+  sections.forEach(section => observer.observe(section));
+});
