@@ -335,8 +335,8 @@ section {
 @media screen  and (width < 916px) {
 
    .myLogo {
-      width: 25px;
-      height: 25px;
+     width: 4vh;
+     max-width: 5vh;
    }
 
    .navbar {
