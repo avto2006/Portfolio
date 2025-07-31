@@ -334,16 +334,25 @@ section {
 
 @media screen  and (width < 916px) {
 
+   header {
+       display: flex;
+       align-items: center;
+   }
+
+   
+
    .myLogo {
      width: 4vh;
      max-width: 5vh;
+
    }
 
    .navbar {
       display: flex;
-      align-content: left;
+      align-content: center;
       width: 100%;
       align-items: center;
+      font-size: 12px;
    }
 
    
