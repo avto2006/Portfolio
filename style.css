@@ -296,11 +296,17 @@ section {
 
 .git,.inst,.fb {
    height: 30px;
-   box-shadow: 0 15px 40px rgba(68, 136, 204, 0.6);
-   background-color: #66259b;
+
+}
+
+.fb {
    border-radius: 30px;
 }
 
+.git {
+   background-color: white;
+   border-radius: 18px;
+}
 
 
 .social-media {
