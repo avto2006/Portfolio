@@ -52,8 +52,12 @@ section {
 }
 
 
+
+
+
 .myLogo {
-   height: 6vh;
+   max-width: 8vh;
+   height: auto;
 }
 
 
