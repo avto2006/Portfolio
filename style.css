@@ -326,7 +326,7 @@ section {
 
 .social-media img:hover {
    transition:   transform 0.7s ease, box-shadow 0.7s ease;
-   transform: translateY(-10px);
+   transform:   translateY(-10px);
 }
 
 
