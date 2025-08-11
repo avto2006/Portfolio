@@ -185,7 +185,7 @@ section {
   padding: 20px 0;
 }
 
-.project-card,.project-card2 {
+.project-card,.project-card2,.project-card3 {
   display: block;
   width: 480px; 
   border-radius: 18px;
@@ -200,7 +200,7 @@ section {
   border: 3px solid #1b0031;
 }
 
-.project-card:hover,.project-card2:hover {
+.project-card:hover,.project-card2:hover, .project-card3:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 40px rgba(25, 118, 210, 0.6);
 }
