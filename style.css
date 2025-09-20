@@ -180,7 +180,7 @@ section {
 
 
 
-.project-card,.project-card2,.project-card3,.project-card4, .project-card5 {
+.project-card,.project-card2,.project-card3,.project-card4, .project-card5, .project-card6 {
   display: block;
   width: 480px; 
   border-radius: 18px;
@@ -195,7 +195,7 @@ section {
   border: 3px solid #1b0031;
 }
 
-.project-card:hover,.project-card2:hover, .project-card3:hover, .project-card4:hover, .project-card5:hover {
+.project-card:hover,.project-card2:hover, .project-card3:hover, .project-card4:hover, .project-card5:hover, .project-card6:hover {
   transform: translateY(-10px);
   box-shadow: 0 15px 40px rgba(25, 118, 210, 0.6);
 }
@@ -392,7 +392,7 @@ section {
 
   
 
-   .project-card,.project-card2,.project-card3, .project-card4, .project-card5 {
+   .project-card,.project-card2,.project-card3, .project-card4, .project-card5, .project-card6 {
       width: 43vh;
    }
 
