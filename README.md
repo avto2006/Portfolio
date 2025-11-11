@@ -19,7 +19,7 @@ It showcases who I am, what I can build, and where I'm heading as a future Full-
 
 ## 📍 Live Preview
 
-👉 [Click to view the live site](https://avto2006.github.io/YOUR-PORTFOLIO-LINK)
+👉 [Click to view the live site]https://avto2006.github.io/Portfolio/
 
 _(🔁 Replace with your deployed GitHub Pages or Netlify/Vercel URL)_
 
