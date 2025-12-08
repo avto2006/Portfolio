@@ -91,7 +91,7 @@ header {
    display: flex;
    align-items: center;
    gap: 40px;
-   margin-top: 120px;
+   margin-top: 25vh;
    justify-content: center;
 }
 
@@ -134,7 +134,7 @@ header {
 .text-wrapper {
    max-width: 700px;
    margin: 0 auto;
-   margin-top: 150px;
+   margin-top: 25vh;
 }
 
 .title-line {
