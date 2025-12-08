@@ -48,7 +48,7 @@ section {
 
 
 .myLogo {
-   max-width: 8vh;
+   max-width: 5vh;
    height: auto;
 }
 
@@ -75,6 +75,10 @@ section {
    list-style: none;
    gap: 150px;
 
+}
+
+header {
+   align-items: center;
 }
 
 .nav-menu a {
