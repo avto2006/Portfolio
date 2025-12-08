@@ -332,6 +332,12 @@ header {
   transform: translateY(0);
 }
 
+.Quote_area {
+  display: grid;
+   justify-content: center;
+   color: white;
+}
+
 
 
 
