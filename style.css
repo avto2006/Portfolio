@@ -336,7 +336,28 @@ header {
   display: grid;
    justify-content: center;
    color: white;
+   margin-top: 25vh;
+   text-align: center;
 }
+
+
+.author {
+    text-decoration: underline;
+}
+
+.quete {
+   border: 1px dashed white;
+   padding: 5vh;
+   border-radius: 12px;
+   margin-top: 15vh;
+}
+
+.myProjects {
+   margin-top: 8vh;
+}
+
+
+
 
 
 
