@@ -377,9 +377,15 @@ header {
 
 
 
-@media screen  and (width < 916px) {
 
-   header {
+
+@media (min-width: 481px) and (max-width: 768px) { 
+          .nav-menu {
+              justify-content: space-between;
+          }
+
+          
+          header {
        display: flex;
        align-items: center;
    }
@@ -450,12 +456,5 @@ header {
    .social-media {
       justify-content: center;
    }
-
-}
-
-@media (min-width: 481px) and (max-width: 768px) { 
-          .nav-menu {
-              justify-content: space-between;
-          }
  }
 
