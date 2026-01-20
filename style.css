@@ -356,6 +356,20 @@ header {
    margin-top: 8vh;
 }
 
+.projects,.projects2,.projects3,.projects4,.projects5 {
+   animation: projectsAnimation 5s;
+}
+
+
+@keyframes projectsAnimation {
+     from {
+         transform: translate(-400px);
+     }
+
+     to {
+         transform: translate(0);
+     }
+}
 
 
 
