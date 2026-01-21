@@ -437,6 +437,69 @@ header {
 
    @media screen and (min-width: 600px) and (max-width: 1023px) {
        
+      .myLogo {
+      width: 22px;
+   }
+
+   .nav-menu {
+      font-size: 12px;
+      gap: 5vh;
+      margin-right: 8vh;
+   }
+
+   .myPhoto {
+      width: 100%;
+      margin-left: 5vh;
+   }
+
+   .text-box,.hh1 {
+      font-size: 25px;
+      margin-right: 8vh;
+   }
+
+   .hero-intro {
+      margin-top: 20vh;
+      display: grid;
+      align-items: center;
+      text-align: center;
+    
+   }
+
+
+   .fade-on-scroll {
+      text-align: center;
+   }
+
+   .experience-intro {
+      text-align: center;
+      margin-left: 4vh;
+   }
+
+   .quete {
+      margin-top: -10vh;
+   }
+ 
+
+   .project-card,
+   .project-card2,
+   .project-card3,
+   .project-card4,
+   .project-card5 {
+       width: 400px;
+       margin-right: 3.5vh;
+   }
+
+   .techstuck {
+      text-align: center;
+   }
+
+   .contact-box {
+      text-align: center;
+   }
+
+   .social-media {
+      justify-content: center;
+   }
 }
 
    
