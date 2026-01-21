@@ -425,6 +425,14 @@ header {
       text-align: center;
    }
 
+   .contact-box {
+      text-align: center;
+   }
+
+   .social-media {
+      justify-content: center;
+   }
+
    
   
 }
