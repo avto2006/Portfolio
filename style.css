@@ -373,5 +373,7 @@ header {
 
 
 @media screen and (max-width: 575px) {
-   
+   .myLogo {
+      width: 22px;
+   }
 }
