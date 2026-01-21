@@ -403,6 +403,24 @@ header {
       text-align: center;
    }
 
+   .experience-intro {
+      text-align: center;
+      margin-left: 4vh;
+   }
+
+   .quete {
+      margin-top: 20vh;
+   }
+
+   .project-card,
+   .project-card2,
+   .project-card3,
+   .project-card4,
+   .project-card5 {
+       width: 400px;
+       margin-right: 3.5vh;
+   }
+
    
   
 }
