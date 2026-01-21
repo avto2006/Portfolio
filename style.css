@@ -376,4 +376,13 @@ header {
    .myLogo {
       width: 22px;
    }
+
+   .nav-menu {
+      font-size: 12px;
+      gap: 5vh;
+      margin-right: 30vh;
+   }
+
+   
+  
 }
