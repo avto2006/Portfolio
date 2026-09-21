@@ -1,174 +1,1079 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="assets/icons/logo2.png">
+    <title>Avtandil Bagaturia | Full-Stack Developer</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            500: '#10b981',
+                            600: '#059669',
+                            accent: '#6366f1',
+                            accentGlow: '#818cf8',
+                            cyan: '#06b6d4'
+                        },
+                        darkBg: '#080c14',
+                        darkCard: 'rgba(15, 23, 42, 0.75)'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Fira Code', 'JetBrains Mono', 'monospace']
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'border-glow': 'borderGlow 3s ease-in-out infinite alternate'
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-12px)' }
+                        },
+                        borderGlow: {
+                            '0%': { 'border-color': 'rgba(99, 102, 241, 0.6)', 'box-shadow': '0 0 15px rgba(99, 102, 241, 0.3)' },
+                            '100%': { 'border-color': 'rgba(16, 185, 129, 0.8)', 'box-shadow': '0 0 25px rgba(16, 185, 129, 0.5)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Outfit:wght@100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Preahvihear&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <title>   Portfolio   </title>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #070a12;
+            color: #f3f4f6;
+            overflow-x: hidden;
+        }
+
+        .glass-panel {
+            background: rgba(13, 19, 33, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .glass-card {
+            background: rgba(22, 30, 49, 0.45);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(99, 102, 241, 0.45);
+            transform: translateY(-6px);
+            box-shadow: 0 20px 40px -15px rgba(99, 102, 241, 0.25);
+        }
+
+        .featured-hero-card {
+            background: rgba(18, 26, 45, 0.85);
+            backdrop-filter: blur(16px);
+            border: 2px solid rgba(99, 102, 241, 0.5);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .featured-hero-card:hover {
+            box-shadow: 0 0 35px rgba(99, 102, 241, 0.35), 0 0 15px rgba(16, 185, 129, 0.25);
+            transform: translateY(-4px) scale(1.005);
+        }
+
+        .bg-grid-pattern {
+            background-size: 36px 36px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #070a12; }
+        ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6366f1; }
+
+        .typing-cursor::after {
+            content: '|';
+            animation: blink 1s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
 </head>
-<body class="page">
+<body class="relative min-h-screen text-slate-100 selection:bg-indigo-500 selection:text-white">
 
-  <!--Cursor-->
-  <style type="text/css">body, * , a img { cursor: url('data:image/x-icon;base64,AAACAAEAICAAAAAAAACoEAAAFgAAACgAAAAgAAAAQAAAAAEAIAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADAAAACAAAAAYAAAADAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAwAAAAVAAAAFQAAAAwAAAADAAAAAwAAAAIAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAAAAAAMAAAAMAAAAHwAAAC8AAAAvAAAAHwAAAAwAAAAKAAAABwAAAAcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHAAAABwAAAAcAAAABAAAACgAAABwAAAA1AAAARQAAAEUAAAA1AAAAHwAAABUAAAAMAAAACQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAADAAAAAwAAAAwAAAAMAAAADAAAAAUAAAAVx2Gs/8dhrP8AAABRAAAAUQAA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'),
-   auto; }
-   
-   </style>
+    <!-- Background Ambient Glow -->
+    <div class="fixed inset-0 pointer-events-none z-0">
+        <div class="absolute inset-0 bg-grid-pattern opacity-60"></div>
+        <div class="absolute top-1/4 left-1/6 w-[30rem] h-[30rem] bg-indigo-600/15 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-1/3 right-1/6 w-[32rem] h-[32rem] bg-emerald-600/15 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+    </div>
 
-   
-     
-    <header>
-        <nav class="navbar">
-          <a href="#" class="logo">
-            <img  class="myLogo" src="assets/icons/logo2.png" alt="MyLogo">
-          </a>
+    <!-- Scroll Progress Bar -->
+    <div id="scrollProgress" class="fixed top-0 left-0 h-1 bg-gradient-to-r from-indigo-500 via-emerald-400 to-cyan-400 z-50 transition-all duration-150 w-0"></div>
 
-            <ul class="nav-menu">
-        <section class="section fade-on-scroll ">  <li><a href="#about">About</a></li> </section>
-        <section class="section fade-on-scroll ">  <li><a href="#projects">Projects</a></li> </section>
-        <section class="section fade-on-scroll ">  <li><a href="#contact">Contact</a></li> </section>
-            </ul>
-        </nav>
-    </header>
+    <header class="fixed top-0 left-0 right-0 z-40 px-4 py-4 transition-all duration-300" id="mainHeader">
+        <div class="max-w-6xl mx-auto glass-panel rounded-full px-6 py-3 flex items-center justify-between shadow-2xl">
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-indigo-500 via-emerald-400 to-cyan-400 p-[2px] transition-transform duration-300 group-hover:scale-110">
+                    <div class="w-full h-full bg-slate-950 rounded-full flex items-center justify-center font-bold font-mono text-base text-emerald-400">
+                        AB
+                    </div>
+                </div>
+                <span class="font-bold text-lg tracking-tight bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent group-hover:from-indigo-400 group-hover:to-emerald-400 transition-all">
+                    Avtandil.dev
+                </span>
+            </a>
 
+            <!-- Desktop Nav -->
+            <nav class="hidden md:flex items-center gap-7 text-sm font-medium">
+                <a href="#about" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="user" class="w-4 h-4"></i> <span id="nav-about">About</span>
+                </a>
+                <a href="#projects" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="folder-git-2" class="w-4 h-4"></i> <span id="nav-projects">Projects</span>
+                </a>
+                <a href="#tech" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="code-2" class="w-4 h-4"></i> <span id="nav-tech">Tech Stack</span>
+                </a>
+                <a href="#terminal" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="terminal" class="w-4 h-4"></i> <span id="nav-terminal">CLI Terminal</span>
+                </a>
+                <a href="#contact" class="text-slate-300 hover:text-emerald-400 transition-colors flex items-center gap-1.5">
+                    <i data-lucide="mail" class="w-4 h-4"></i> <span id="nav-contact">Contact</span>
+                </a>
+            </nav>
 
-   <div class="hero-intro">
-        <div class="avatar-box">
-            <img class="myPhoto" src="./assets/images/download__2_-removebg-preview.png" alt="">
+            <!-- Hire & Language Action Buttons -->
+            <div class="flex items-center gap-3">
+                <button onclick="toggleLanguage()" id="langBtn" class="px-3.5 py-1.5 rounded-full glass-panel border border-indigo-500/40 text-xs font-mono text-indigo-300 hover:border-emerald-400 transition-all flex items-center gap-1.5 cursor-pointer">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-emerald-400"></i>
+                    <span id="langLabel">KA</span>
+                </button>
+
+                <a href="#contact" class="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-indigo-600 hover:bg-indigo-500 rounded-full shadow-lg shadow-indigo-600/30 hover:shadow-indigo-500/50 transition-all duration-300 transform active:scale-95">
+                    <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> <span id="btn-hire">Hire Me</span>
+                </a>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 text-slate-300 hover:text-white rounded-lg">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
         </div>
 
-    <div class="text-box">
-        <p> Hello! I am <span>Avtandil Bagaturia</span> </p>
-        <p class="subtitle">A Developer who</p>
-        <h1 class="hh1">turns ideas into <br> interactive <span class="highlight"> reality  </span>. . . </h1>
-        <p class="qoute">Because great products  begin with brave thoughts.</p>
-    </div>
-    </div> 
+        <!-- Mobile Nav Menu -->
+        <div id="mobileMenu" class="hidden md:hidden max-w-6xl mx-auto mt-2 glass-panel rounded-2xl p-6 flex-col gap-4 text-center shadow-2xl">
+            <a href="#about" class="py-2 text-slate-200 hover:text-emerald-400 mobile-nav-link">About</a>
+            <a href="#projects" class="py-2 text-slate-200 hover:text-emerald-400 mobile-nav-link">Projects</a>
+            <a href="#tech" class="py-2 text-slate-200 hover:text-emerald-400 mobile-nav-link">Tech Stack</a>
+            <a href="#terminal" class="py-2 text-slate-200 hover:text-emerald-400 mobile-nav-link">CLI Terminal</a>
+            <a href="#contact" class="py-2 text-slate-200 hover:text-emerald-400 mobile-nav-link">Contact</a>
+        </div>
+    </header>
 
-    <div class="Quote_area">
-      <h2 class="quete">The <span class="highlight">best websites</span > aren’t just visual — they are <span class="highlight"> experiences. </span></h2>
-    </div>
+    <main class="relative z-10 pt-32 pb-20">
+        <section class="max-w-6xl mx-auto px-6 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Hero Left Intro Text -->
+            <div class="lg:col-span-7 space-y-6">
+                <!-- Status Badge -->
+                <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full glass-panel border border-emerald-500/40 text-emerald-400 text-xs font-mono font-medium">
+                    <span class="relative flex h-2 w-2">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                    </span>
+                    <span id="text-status">2026 Ready // Open for Full-Stack Roles</span>
+                </div>
 
-    <div class="text-wrapper">
+                <!-- Main Titles -->
+                <div class="space-y-2">
+                    <h2 class="text-slate-400 text-lg md:text-xl font-mono" id="text-hello">
+                        Hello! I am
+                    </h2>
+                    <h1 class="text-4xl sm:text-6xl font-black tracking-tight text-white">
+                        Avtandil <span class="bg-gradient-to-r from-indigo-400 via-emerald-400 to-cyan-400 bg-clip-text text-transparent">Bagaturia</span>
+                    </h1>
+                    <div class="text-xl sm:text-3xl font-semibold text-slate-300 flex items-center gap-2 pt-2">
+                        <span id="text-prefix">A Developer who</span>
+                        <span id="typingText" class="text-indigo-400 font-mono typing-cursor"></span>
+                    </div>
+                </div>
 
-      <section class="fade-on-scroll">
+                <!-- Subtitle Description -->
+                <p class="text-slate-400 text-base md:text-lg leading-relaxed max-w-2xl" id="text-desc">
+                    Full-Stack Developer with <span class="text-slate-100 font-semibold">3 years</span> of experience engineering high-performance web applications. Specialized in modern Frontend architecture with solid backend mastery in Node.js, Express, Python, and SQL.
+                </p>
 
-       <div class="title-line">  
-      I'm a <span class="higlight2">junior Full-stuck Developer . . </span><span class="cursor"> |</span> 
-       </div>
-       <section id="about">
-       <div class="description-line">
-          Aspiring Full-Stack Developer and IT student with 3 years of experience specializing in Frontend development, with solid Backend proficiency in Node.js && Express.js, Python, and SQL. Passionate about engineering high-performance, modern web applications from end to end.
-       </div>
-       </section>
-      </div>
+                <!-- Hero CTA Buttons -->
+                <div class="flex flex-wrap items-center gap-4 pt-3">
+                    <a href="#projects" class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-emerald-500 hover:from-indigo-500 hover:to-emerald-400 text-white font-medium text-sm flex items-center gap-2 shadow-lg shadow-indigo-600/30 hover:shadow-indigo-500/50 hover:-translate-y-0.5 transition-all">
+                        <i data-lucide="sparkles" class="w-4 h-4"></i> <span id="btn-view-projects">View Featured Projects</span>
+                    </a>
+                    <a href="#contact" class="px-6 py-3.5 rounded-xl glass-card text-slate-200 hover:text-white font-medium text-sm flex items-center gap-2 border border-slate-700/80 hover:border-indigo-500/50 hover:-translate-y-0.5 transition-all">
+                        <i data-lucide="message-square" class="w-4 h-4"></i> <span id="btn-contact-me">Contact Me</span>
+                    </a>
+                    <button onclick="copyEmail()" class="px-4 py-3.5 rounded-xl glass-card text-slate-400 hover:text-emerald-400 text-sm flex items-center gap-2 border border-slate-700/80 hover:border-emerald-500/40 transition-all cursor-pointer" title="Copy Email">
+                        <i data-lucide="copy" class="w-4 h-4"></i>
+                        <span class="hidden sm:inline" id="btn-copy-email">Copy Email</span>
+                    </button>
+                </div>
 
-    <div class="experience-intro">
-        <div class="myProjectText">
-       <h1 class="hh2">My Projects</h1>
-       </div>
-
-       <div class="myProjects">
-         <section class="projects">
-             <a class="aa1" href="https://avto2006.github.io/Sport-News/" target="_blank">
-          <div class="project-card">
-            <div class="image-conteiner">
-              <img src="assets/images/sportNews.png" alt="mainProject" class="project-image" />
+                <!-- Stats Footer -->
+                <div class="grid grid-cols-3 gap-4 pt-8 border-t border-slate-800/80">
+                    <div class="glass-card p-4 rounded-xl text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">3+</div>
+                        <div class="text-xs text-slate-400 mt-1" id="stat-exp">Years Experience</div>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-indigo-400 font-mono">5+</div>
+                        <div class="text-xs text-slate-400 mt-1" id="stat-apps">Featured Apps</div>
+                    </div>
+                    <div class="glass-card p-4 rounded-xl text-center">
+                        <div class="text-2xl sm:text-3xl font-extrabold text-cyan-400 font-mono">100%</div>
+                        <div class="text-xs text-slate-400 mt-1" id="stat-quality">Dedicated Code Quality</div>
+                    </div>
+                </div>
             </div>
-          </div>
-         </section>
 
-         <section class="projects2">
-           <a class="aa2" href="https://avto2006.github.io/Robots-Website/" target="_blank">
-          <div class="project-card2">
-            <div class="image-conteiner2">
-              <img src="assets/images/robotsWeb.png" alt="mainProject" class="project-image" />
+            <!-- Hero Profile Photo Showcase Card -->
+            <div class="lg:col-span-5 flex justify-center relative">
+                <div class="absolute -inset-1 rounded-3xl bg-gradient-to-r from-indigo-500 via-emerald-500 to-cyan-500 opacity-30 blur-2xl animate-pulse-slow"></div>
+
+                <div class="relative glass-panel rounded-3xl p-6 border border-slate-700/50 w-full max-w-md animate-float">
+                    <div class="flex items-center justify-between pb-4 border-b border-slate-800">
+                        <div class="flex items-center gap-2">
+                            <span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-amber-500 inline-block"></span>
+                            <span class="w-3 h-3 rounded-full bg-emerald-500 inline-block"></span>
+                        </div>
+                        <span class="text-xs font-mono text-slate-400">avtandil_photo.png</span>
+                    </div>
+
+                    <!-- Photo Container -->
+                    <div class="my-6 relative rounded-2xl overflow-hidden bg-slate-950/80 aspect-[4/5] border border-slate-800 flex items-center justify-center group shadow-2xl">
+                        <img src="input_file_0.png" 
+                             alt="Avtandil Bagaturia" 
+                             class="w-full h-full object-cover object-top filter brightness-105 contrast-105 transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='assets/images/download__2_-removebg-preview.png';" />
+                        
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
+
+                        <div class="absolute bottom-4 left-4 glass-panel px-3.5 py-1.5 rounded-lg border border-indigo-500/40 text-xs font-mono text-indigo-300 flex items-center gap-2 shadow-xl backdrop-blur-md">
+                            <i data-lucide="code-2" class="w-4 h-4 text-indigo-400"></i> Full-Stack Engineer
+                        </div>
+                        <div class="absolute top-4 right-4 glass-panel px-3.5 py-1.5 rounded-lg border border-emerald-500/40 text-xs font-mono text-emerald-300 flex items-center gap-2 shadow-xl backdrop-blur-md">
+                            <i data-lucide="zap" class="w-4 h-4 text-emerald-400"></i> Modern 2026 UI
+                        </div>
+                    </div>
+
+                    <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 text-xs text-slate-300 italic flex items-start gap-3">
+                        <i data-lucide="quote" class="w-5 h-5 text-indigo-400 shrink-0 mt-0.5"></i>
+                        <span id="text-quote">"Great products begin with brave thoughts. The best websites are memorable experiences."</span>
+                    </div>
+                </div>
             </div>
-          </div>
-          </a>
-         </section>
+        </section>
 
-          <section id="projects" class="projects3">
-             <a class="aa3" href="https://avto2006.github.io/resturant-website2/" target="_blank">
-          <div class="project-card3">
-            <div class="image-conteiner3">
-              <img src="assets/images/restaurantWeb.png" alt="mainProject" class="project-image" />
+        <section id="projects" class="max-w-6xl mx-auto px-6 py-16 scroll-mt-24">
+            <div class="text-center space-y-3 mb-14">
+                <span class="text-indigo-400 text-sm font-mono tracking-wider uppercase">01 // Portfolio Highlights</span>
+                <h2 class="text-3xl sm:text-5xl font-black text-white" id="title-projects">My Projects</h2>
+                <p class="text-slate-400 text-sm sm:text-base max-w-2xl mx-auto" id="subtitle-projects">
+                    Featuring <span class="text-emerald-400 font-semibold">2 Flagship Hero Projects</span> with custom showcases, followed by dynamic web applications.
+                </p>
+                <div class="w-20 h-1 bg-gradient-to-r from-indigo-500 to-emerald-400 mx-auto rounded-full"></div>
             </div>
-          </div>
-          </a>
-         </section>
 
-         <section class="projects4">
-          <a class="aa4" href="https://avto2006.github.io/weather-app/" target="_blank">
-          <div class="project-card4">
-            <div class="image-conteiner3">
-              <img src="assets/images/screen.png" alt="mainProject" class="project-image" />
+            <!-- FLAGSHIP HERO PROJECTS -->
+            <div class="space-y-12 mb-16">
+                
+                <!-- HERO PROJECT #1: Sport News -->
+                <div class="featured-hero-card rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border-2 border-indigo-500/60 shadow-2xl">
+                    <div class="lg:col-span-7 relative overflow-hidden group min-h-[280px] lg:min-h-[380px] bg-slate-950">
+                        <img src="assets/images/sportNews.png" 
+                             alt="Sport News Website" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=80';" />
+                        <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent"></div>
+                        
+                        <div class="absolute top-4 left-4 flex items-center gap-2">
+                            <span class="px-3 py-1.5 rounded-full bg-indigo-600 text-white font-mono text-xs font-bold shadow-lg flex items-center gap-1.5">
+                                <i data-lucide="crown" class="w-3.5 h-3.5 text-amber-300"></i> FEATURED PROJECT #1
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 p-8 flex flex-col justify-between space-y-6 bg-slate-950/90">
+                        <div class="space-y-3">
+                            <span class="text-xs font-mono text-indigo-400 tracking-wider">FLAGSHIP SHOWCASE</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-emerald-400 transition-colors">
+                                Sport News Web App
+                            </h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                A high-performance dynamic sports platform delivering real-time headlines, match updates, category filtering, and crisp mobile-first layout.
+                            </p>
+                        </div>
+
+                        <div class="space-y-5 border-t border-slate-800 pt-5">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs font-mono px-3 py-1 rounded-lg bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">JavaScript ES6+</span>
+                                <span class="text-xs font-mono px-3 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">Responsive Layout</span>
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <a href="https://avto2006.github.io/Sport-News/" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-5 rounded-xl bg-gradient-to-r from-indigo-600 to-emerald-500 hover:from-indigo-500 hover:to-emerald-400 text-white font-semibold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition-all">
+                                    <i data-lucide="external-link" class="w-4 h-4"></i> Launch Live Site
+                                </a>
+                                <a href="https://github.com/avto2006" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl glass-panel text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HERO PROJECT #2: Robots Website -->
+                <div class="featured-hero-card rounded-3xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 gap-0 border-2 border-emerald-500/60 shadow-2xl">
+                    <div class="lg:col-span-7 relative overflow-hidden group min-h-[280px] lg:min-h-[380px] bg-slate-950">
+                        <img src="assets/images/robotsWeb.png" 
+                             alt="NextGen Robots Website" 
+                             class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=1200&q=80';" />
+                        <div class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-slate-950 via-slate-950/40 to-transparent"></div>
+                        
+                        <div class="absolute top-4 left-4 flex items-center gap-2">
+                            <span class="px-3 py-1.5 rounded-full bg-emerald-600 text-white font-mono text-xs font-bold shadow-lg flex items-center gap-1.5">
+                                <i data-lucide="sparkles" class="w-3.5 h-3.5 text-amber-300"></i> FEATURED PROJECT #2
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="lg:col-span-5 p-8 flex flex-col justify-between space-y-6 bg-slate-950/90">
+                        <div class="space-y-3">
+                            <span class="text-xs font-mono text-emerald-400 tracking-wider">FLAGSHIP SHOWCASE</span>
+                            <h3 class="text-2xl sm:text-3xl font-extrabold text-white group-hover:text-indigo-400 transition-colors">
+                                NextGen Robots Portal
+                            </h3>
+                            <p class="text-slate-300 text-sm leading-relaxed">
+                                A cutting-edge robotics tech portal with rich glassmorphism aesthetics, fluid micro-interactions, and custom grid design.
+                            </p>
+                        </div>
+
+                        <div class="space-y-5 border-t border-slate-800 pt-5">
+                            <div class="flex flex-wrap gap-2">
+                                <span class="text-xs font-mono px-3 py-1 rounded-lg bg-emerald-500/15 text-emerald-300 border border-emerald-500/30">JavaScript</span>
+                                <span class="text-xs font-mono px-3 py-1 rounded-lg bg-indigo-500/15 text-indigo-300 border border-indigo-500/30">Futuristic UI</span>
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <a href="https://avto2006.github.io/Robots-Website/" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-5 rounded-xl bg-gradient-to-r from-emerald-600 to-indigo-600 hover:from-emerald-500 hover:to-indigo-500 text-white font-semibold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition-all">
+                                    <i data-lucide="external-link" class="w-4 h-4"></i> Launch Live Site
+                                </a>
+                                <a href="https://github.com/avto2006" target="_blank" rel="noopener noreferrer" class="p-3 rounded-xl glass-panel text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all">
+                                    <i data-lucide="github" class="w-5 h-5"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
-          </a>
-         </section>
 
-             <section class="projects5">
-          <a class="aa5" href=" https://avto2006.github.io/Word-Scramble-Game/" target="_blank">
-          <div class="project-card5">
-            <div class="image-conteiner3">
-              <img src="assets/images/randomWord.png" alt="mainProject" class="project-image" />
+            <!-- OTHER PROJECTS -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Project 3: Restaurant Website -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between group">
+                    <div class="relative overflow-hidden aspect-video bg-slate-950">
+                        <img src="assets/images/restaurantWeb.png" 
+                             alt="Restaurant Website" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=800&q=80';" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80"></div>
+                    </div>
+
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-amber-400 transition-colors">
+                                Gourmet Dining
+                            </h3>
+                            <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                Elegant restaurant web platform with dynamic menu filtering and reservation interface.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 pt-4 border-t border-slate-800/80">
+                            <div class="flex items-center gap-3">
+                                <a href="https://avto2006.github.io/resturant-website2/" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-4 rounded-xl bg-indigo-600/90 hover:bg-indigo-600 text-white font-medium text-xs text-center flex items-center justify-center gap-2 transition-all">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/avto2006" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl glass-panel text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Weather App -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between group">
+                    <div class="relative overflow-hidden aspect-video bg-slate-950">
+                        <img src="assets/images/screen.png" 
+                             alt="Weather App" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1592210454359-9043f067919b?auto=format&fit=crop&w=800&q=80';" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80"></div>
+                    </div>
+
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-cyan-400 transition-colors">
+                                Weather Forecast
+                            </h3>
+                            <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                Live weather application fetching climate metrics, city searches, and humidity data.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 pt-4 border-t border-slate-800/80">
+                            <div class="flex items-center gap-3">
+                                <a href="https://avto2006.github.io/weather-app/" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-4 rounded-xl bg-indigo-600/90 hover:bg-indigo-600 text-white font-medium text-xs text-center flex items-center justify-center gap-2 transition-all">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/avto2006" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl glass-panel text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Word Scramble Game -->
+                <div class="glass-card rounded-2xl overflow-hidden border border-slate-800 flex flex-col justify-between group">
+                    <div class="relative overflow-hidden aspect-video bg-slate-950">
+                        <img src="assets/images/randomWord.png" 
+                             alt="Word Scramble Game" 
+                             class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                             onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1611996575749-79a3a250f948?auto=format&fit=crop&w=800&q=80';" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/20 to-transparent opacity-80"></div>
+                    </div>
+
+                    <div class="p-6 space-y-4 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white group-hover:text-purple-400 transition-colors">
+                                Word Scramble
+                            </h3>
+                            <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+                                Vocabulary testing game built with custom algorithms, timers, and hint features.
+                            </p>
+                        </div>
+
+                        <div class="space-y-4 pt-4 border-t border-slate-800/80">
+                            <div class="flex items-center gap-3">
+                                <a href="https://avto2006.github.io/Word-Scramble-Game/" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 px-4 rounded-xl bg-indigo-600/90 hover:bg-indigo-600 text-white font-medium text-xs text-center flex items-center justify-center gap-2 transition-all">
+                                    <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Live Demo
+                                </a>
+                                <a href="https://github.com/avto2006" target="_blank" rel="noopener noreferrer" class="p-2.5 rounded-xl glass-panel text-slate-300 hover:text-white border border-slate-700 hover:border-slate-500 transition-all">
+                                    <i data-lucide="github" class="w-4 h-4"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-          </div>
-          </a>
-         </section>
+        </section>
 
-          
-       </div>
+        <section id="about" class="max-w-6xl mx-auto px-6 py-16 scroll-mt-24">
+            <div class="text-center space-y-3 mb-12">
+                <span class="text-emerald-400 text-sm font-mono tracking-wider uppercase">02 // Profile Background</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white" id="title-about">About Me</h2>
+                <div class="w-16 h-1 bg-emerald-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                <!-- Narrative Box -->
+                <div class="lg:col-span-7 glass-panel rounded-2xl p-8 border border-slate-800 space-y-6 flex flex-col justify-between">
+                    <div class="space-y-4 text-slate-300 leading-relaxed">
+                        <h3 class="text-xl font-bold text-white flex items-center gap-2" id="sub-about">
+                            Dedicated Junior Full-Stack Developer
+                        </h3>
+                        <p id="about-text-1">
+                            I am an ambitious Full-Stack Developer and IT student with over 3 years of hands-on experience building clean web applications from concept to production.
+                        </p>
+                        <p id="about-text-2">
+                            My skill set bridges both client-side design (React, ES6+, Tailwind) and backend engineering (Node.js, Express, Python, SQL). I focus on writing clean, scalable code with emphasis on user engagement and optimal performance.
+                        </p>
+                    </div>
+
+                    <div class="pt-6 border-t border-slate-800 flex flex-wrap gap-3">
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">Full-Stack Development</span>
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">Clean Architecture</span>
+                        <span class="px-3 py-1.5 rounded-lg text-xs font-mono bg-cyan-500/10 text-cyan-300 border border-cyan-500/20">RESTful APIs & SQL</span>
+                    </div>
+                </div>
+
+                <!-- Experience Card -->
+                <div class="lg:col-span-5 glass-panel rounded-2xl p-8 border border-slate-800 space-y-6">
+                    <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                        <i data-lucide="award" class="w-5 h-5 text-indigo-400"></i>
+                        Core Milestones
+                    </h3>
+
+                    <div class="space-y-6 relative border-l-2 border-slate-800 pl-6 ml-2">
+                        <div class="relative">
+                            <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-emerald-400 ring-4 ring-slate-950"></span>
+                            <span class="text-xs font-mono text-emerald-400">2023 - Present</span>
+                            <h4 class="text-sm font-semibold text-white mt-1">Full-Stack Application Focus</h4>
+                            <p class="text-xs text-slate-400 mt-1">Building responsive React engines, Express APIs, and SQL backends.</p>
+                        </div>
+
+                        <div class="relative">
+                            <span class="absolute -left-[31px] top-1 w-3 h-3 rounded-full bg-indigo-400 ring-4 ring-slate-950"></span>
+                            <span class="text-xs font-mono text-indigo-400">2021 - 2023</span>
+                            <h4 class="text-sm font-semibold text-white mt-1">Frontend Engineering Foundation</h4>
+                            <p class="text-xs text-slate-400 mt-1">Mastered JavaScript ES6+, HTML5, CSS3, dynamic UI interaction, and web design systems.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tech" class="max-w-6xl mx-auto px-6 py-16 scroll-mt-24">
+            <div class="text-center space-y-3 mb-10">
+                <span class="text-indigo-400 text-sm font-mono tracking-wider uppercase">03 // Technical Stack</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white" id="title-tech">Skills & Technologies</h2>
+                <div class="w-16 h-1 bg-indigo-500 mx-auto rounded-full"></div>
+            </div>
+
+            <!-- Category Filter Buttons -->
+            <div class="flex justify-center items-center gap-3 mb-10 flex-wrap">
+                <button onclick="filterTech('all')" class="tech-filter-btn active px-4 py-2 rounded-xl text-xs font-medium glass-card border border-indigo-500/50 text-white transition-all cursor-pointer" data-category="all" id="tech-all">
+                    All Technologies
+                </button>
+                <button onclick="filterTech('frontend')" class="tech-filter-btn px-4 py-2 rounded-xl text-xs font-medium glass-card border border-slate-700 text-slate-400 hover:text-white transition-all cursor-pointer" data-category="frontend" id="tech-front">
+                    Frontend
+                </button>
+                <button onclick="filterTech('backend')" class="tech-filter-btn px-4 py-2 rounded-xl text-xs font-medium glass-card border border-slate-700 text-slate-400 hover:text-white transition-all cursor-pointer" data-category="backend" id="tech-back">
+                    Backend & DB
+                </button>
+                <button onclick="filterTech('tools')" class="tech-filter-btn px-4 py-2 rounded-xl text-xs font-medium glass-card border border-slate-700 text-slate-400 hover:text-white transition-all cursor-pointer" data-category="tools" id="tech-tools">
+                    Tools & UI
+                </button>
+            </div>
+
+            <!-- Tech Badges Container -->
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4" id="techContainer">
+                <div class="tech-item glass-card p-5 rounded-2xl border border-slate-800 flex flex-col items-center text-center space-y-3 group hover:border-cyan-500/50" data-cat="frontend">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="atom" class="w-7 h-7"></i>
+                    </div>
+                    <span class="font-semibold text-sm text-white">React.js</span>
+                    <span class="text-[11px] font-mono text-slate-400">Frontend Engine</span>
+                </div>
+
+                <div class="tech-item glass-card p-5 rounded-2xl border border-slate-800 flex flex-col items-center text-center space-y-3 group hover:border-amber-500/50" data-cat="frontend">
+                    <div class="w-12 h-12 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="file-code" class="w-7 h-7"></i>
+                    </div>
+                    <span class="font-semibold text-sm text-white">JavaScript (ES6+)</span>
+                    <span class="text-[11px] font-mono text-slate-400">Core Logic</span>
+                </div>
+
+                <div class="tech-item glass-card p-5 rounded-2xl border border-slate-800 flex flex-col items-center text-center space-y-3 group hover:border-blue-500/50" data-cat="frontend">
+                    <div class="w-12 h-12 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="code-2" class="w-7 h-7"></i>
+                    </div>
+                    <span class="font-semibold text-sm text-white">TypeScript</span>
+                    <span class="text-[11px] font-mono text-slate-400">Typed JS</span>
+                </div>
+
+                <div class="tech-item glass-card p-5 rounded-2xl border border-slate-800 flex flex-col items-center text-center space-y-3 group hover:border-emerald-500/50" data-cat="backend">
+                    <div class="w-12 h-12 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="server" class="w-7 h-7"></i>
+                    </div>
+                    <span class="font-semibold text-sm text-white">Node.js / Express</span>
+                    <span class="text-[11px] font-mono text-slate-400">Backend APIs</span>
+                </div>
+
+                <div class="tech-item glass-card p-5 rounded-2xl border border-slate-800 flex flex-col items-center text-center space-y-3 group hover:border-yellow-500/50" data-cat="backend">
+                    <div class="w-12 h-12 rounded-xl bg-yellow-500/10 flex items-center justify-center text-yellow-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="terminal-square" class="w-7 h-7"></i>
+                    </div>
+                    <span class="font-semibold text-sm text-white">Python</span>
+                    <span class="text-[11px] font-mono text-slate-400">Backend Scripting</span>
+                </div>
+
+                <div class="tech-item glass-card p-5 rounded-2xl border border-slate-800 flex flex-col items-center text-center space-y-3 group hover:border-indigo-500/50" data-cat="backend">
+                    <div class="w-12 h-12 rounded-xl bg-indigo-500/10 flex items-center justify-center text-indigo-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="database" class="w-7 h-7"></i>
+                    </div>
+                    <span class="font-semibold text-sm text-white">SQL / Databases</span>
+                    <span class="text-[11px] font-mono text-slate-400">Data Architecture</span>
+                </div>
+
+                <div class="tech-item glass-card p-5 rounded-2xl border border-slate-800 flex flex-col items-center text-center space-y-3 group hover:border-orange-500/50" data-cat="frontend">
+                    <div class="w-12 h-12 rounded-xl bg-orange-500/10 flex items-center justify-center text-orange-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="layout" class="w-7 h-7"></i>
+                    </div>
+                    <span class="font-semibold text-sm text-white">HTML5 & CSS3</span>
+                    <span class="text-[11px] font-mono text-slate-400">Responsive UI</span>
+                </div>
+
+                <div class="tech-item glass-card p-5 rounded-2xl border border-slate-800 flex flex-col items-center text-center space-y-3 group hover:border-purple-500/50" data-cat="tools">
+                    <div class="w-12 h-12 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 group-hover:scale-110 transition-transform">
+                        <i data-lucide="figma" class="w-7 h-7"></i>
+                    </div>
+                    <span class="font-semibold text-sm text-white">Figma Design</span>
+                    <span class="text-[11px] font-mono text-slate-400">Prototyping</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="terminal" class="max-w-4xl mx-auto px-6 py-16 scroll-mt-24">
+            <div class="text-center space-y-3 mb-8">
+                <span class="text-emerald-400 text-sm font-mono tracking-wider uppercase">04 // Interactive Console</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white" id="title-terminal">CLI Terminal</h2>
+                <p class="text-slate-400 text-sm" id="desc-terminal">Type <code class="text-emerald-400 bg-slate-900 px-1.5 py-0.5 rounded">help</code> to inspect profile commands.</p>
+            </div>
+
+            <div class="glass-panel rounded-2xl border border-slate-800 overflow-hidden shadow-2xl font-mono text-sm">
+                <div class="bg-slate-950/90 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                        <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                        <span class="text-xs text-slate-400 ml-2">avtandil@dev-box:~</span>
+                    </div>
+                    <button onclick="clearTerminal()" class="text-xs text-slate-500 hover:text-slate-300 cursor-pointer">Clear</button>
+                </div>
+
+                <div id="terminalOutput" class="p-6 h-64 overflow-y-auto space-y-3 text-slate-300 bg-slate-950/80">
+                    <div class="text-emerald-400">Avtandil Bagaturia Interactive Terminal initialized!</div>
+                    <div class="text-slate-400">Available commands: <span class="text-indigo-400 font-bold">about</span>, <span class="text-indigo-400 font-bold">skills</span>, <span class="text-indigo-400 font-bold">projects</span>, <span class="text-indigo-400 font-bold">contact</span>.</div>
+                </div>
+
+                <form onsubmit="handleTerminalCommand(event)" class="bg-slate-950 px-6 py-3 border-t border-slate-800 flex items-center gap-3">
+                    <span class="text-emerald-400">avtandil$&nbsp;</span>
+                    <input type="text" id="terminalInput" autocomplete="off" placeholder="type help..." class="flex-1 bg-transparent border-none outline-none text-slate-200 placeholder-slate-600 text-sm font-mono focus:ring-0" />
+                </form>
+            </div>
+        </section>
+
+        <section id="contact" class="max-w-6xl mx-auto px-6 py-16 scroll-mt-24">
+            <div class="text-center space-y-3 mb-12">
+                <span class="text-indigo-400 text-sm font-mono tracking-wider uppercase">05 // Direct Contact</span>
+                <h2 class="text-3xl sm:text-4xl font-bold text-white" id="title-contact">Let’s Connect</h2>
+                <div class="w-16 h-1 bg-indigo-500 mx-auto rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                <div class="lg:col-span-5 glass-panel rounded-2xl p-8 border border-slate-800 space-y-6">
+                    <h3 class="text-xl font-bold text-white" id="info-contact">Contact Info</h3>
+                    <p class="text-slate-400 text-sm leading-relaxed">
+                        Interested in working together or reviewing my full resume? Send me a message!
+                    </p>
+
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-4 p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400 shrink-0">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div class="overflow-hidden">
+                                <div class="text-xs text-slate-400">Email Address</div>
+                                <div class="text-sm font-mono font-medium text-white truncate">avtobagaturia21@gmail.com</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-center gap-4 p-3.5 rounded-xl bg-slate-900/80 border border-slate-800">
+                            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 flex items-center justify-center text-emerald-400 shrink-0">
+                                <i data-lucide="map-pin" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <div class="text-xs text-slate-400">Location</div>
+                                <div class="text-sm font-medium text-white">Tbilisi, Georgia / Remote</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 border-t border-slate-800">
+                        <div class="text-xs text-slate-400 mb-3">Social Channels</div>
+                        <div class="flex items-center gap-3">
+                            <a href="https://github.com/avto2006" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-slate-300 hover:text-white hover:border-indigo-500/50 transition-all">
+                                <i data-lucide="github" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://www.linkedin.com/in/avto-bagaturia-709195360/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 transition-all">
+                                <i data-lucide="linkedin" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://www.facebook.com/atuk.a.baghaturia" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-slate-300 hover:text-blue-400 hover:border-blue-500/50 transition-all">
+                                <i data-lucide="facebook" class="w-5 h-5"></i>
+                            </a>
+                            <a href="https://www.instagram.com/avto_.63/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-500/50 transition-all">
+                                <i data-lucide="instagram" class="w-5 h-5"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-7 glass-panel rounded-2xl p-8 border border-slate-800">
+                    <form onsubmit="handleFormSubmit(event)" class="space-y-5">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-mono text-slate-300">Your Name</label>
+                                <input type="text" required placeholder="Name" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-100 placeholder-slate-600 text-sm focus:outline-none focus:border-indigo-500 transition-all" />
+                            </div>
+                            <div class="space-y-1.5">
+                                <label class="text-xs font-mono text-slate-300">Email Address</label>
+                                <input type="email" required placeholder="Email" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-100 placeholder-slate-600 text-sm focus:outline-none focus:border-indigo-500 transition-all" />
+                            </div>
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label class="text-xs font-mono text-slate-300">Subject</label>
+                            <input type="text" required placeholder="Project / Offer Inquiry" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-100 placeholder-slate-600 text-sm focus:outline-none focus:border-indigo-500 transition-all" />
+                        </div>
+
+                        <div class="space-y-1.5">
+                            <label class="text-xs font-mono text-slate-300">Message</label>
+                            <textarea rows="4" required placeholder="Write your message here..." class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-slate-800 text-slate-100 placeholder-slate-600 text-sm focus:outline-none focus:border-indigo-500 transition-all resize-none"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-indigo-600 via-indigo-500 to-emerald-500 hover:from-indigo-500 hover:to-emerald-400 text-white font-semibold text-sm shadow-xl shadow-indigo-600/25 transition-all flex items-center justify-center gap-2 cursor-pointer">
+                            <i data-lucide="send" class="w-4 h-4"></i> <span id="btn-send-msg">Send Message</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="border-t border-slate-800/80 py-8 relative z-10 bg-slate-950/90">
+        <div class="max-w-6xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+            <div>
+                &copy; 2026 Avtandil Bagaturia. Built for modern performance.
+            </div>
+            <div class="flex items-center gap-6">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
+                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 glass-panel border border-emerald-500/40 text-emerald-300 px-5 py-3 rounded-xl shadow-2xl flex items-center gap-3 translate-y-20 opacity-0 pointer-events-none transition-all duration-300">
+        <i data-lucide="check-circle" class="w-5 h-5 text-emerald-400"></i>
+        <span id="toastMsg" class="text-xs font-mono">Email copied to clipboard!</span>
     </div>
 
+    <script>
+        // Dictionary
+        const translations = {
+            en: {
+                aboutNav: "About",
+                projectsNav: "Projects",
+                techNav: "Tech Stack",
+                terminalNav: "CLI Terminal",
+                contactNav: "Contact",
+                hireMe: "Hire Me",
+                status: "2026 Ready // Open for Full-Stack Roles",
+                hello: "Hello! I am",
+                subtitlePrefix: "A Developer who",
+                desc: "Full-Stack Developer with 3 years of experience engineering high-performance web applications. Specialized in modern Frontend architecture with solid backend mastery in Node.js, Express, Python, and SQL.",
+                viewProjects: "View Featured Projects",
+                contactMe: "Contact Me",
+                copyEmail: "Copy Email",
+                expYears: "Years Experience",
+                featuredApps: "Featured Apps",
+                codeQuality: "Dedicated Code Quality",
+                quote: '"Great products begin with brave thoughts. The best websites are memorable experiences."',
+                projectsTitle: "My Projects",
+                projectsSubtitle: "Featuring 2 Flagship Hero Projects with custom showcases, followed by dynamic web applications.",
+                aboutTitle: "About Me",
+                aboutSub: "Dedicated Junior Full-Stack Developer",
+                aboutText1: "I am an ambitious Full-Stack Developer and IT student with over 3 years of hands-on experience building clean web applications from concept to production.",
+                aboutText2: "My skill set bridges both client-side design (React, ES6+, Tailwind) and backend engineering (Node.js, Express, Python, SQL). I focus on writing clean, scalable code with emphasis on user engagement and optimal performance.",
+                techTitle: "Skills & Technologies",
+                techAll: "All Technologies",
+                techFront: "Frontend",
+                techBack: "Backend & DB",
+                techTools: "Tools & UI",
+                terminalTitle: "CLI Terminal",
+                terminalDesc: "Type 'help' to inspect profile commands.",
+                contactTitle: "Let's Connect",
+                contactInfo: "Contact Info",
+                sendMsg: "Send Message",
+                phrases: [
+                    'turns ideas into interactive reality.',
+                    'engineers full-stack web platforms.',
+                    'builds clean & scalable code.',
+                    'creates modern user experiences.'
+                ]
+            },
+            ka: {
+                aboutNav: "ჩემ შესახებ",
+                projectsNav: "პროექტები",
+                techNav: "ტექნოლოგიები",
+                terminalNav: "ტერმინალი",
+                contactNav: "კონტაქტი",
+                hireMe: "დამიქირავე",
+                status: "2026 Ready // მზად ვარ Full-Stack პოზიციებისთვის",
+                hello: "გამარჯობა! მე ვარ",
+                subtitlePrefix: "დეველოპერი, რომელიც",
+                desc: "Full-Stack დეველოპერი 3-წლიანი გამოცდილებით მაღალი წარმადობის ვებ-აპლიკაციების შექმნაში. სპეციალიზებული თანამედროვე Frontend არქიტექტურასა და Backend ინფრასტრუქტურაში (Node.js, Express, Python, SQL).",
+                viewProjects: "პროექტების ნახვა",
+                contactMe: "დამიკავშირდით",
+                copyEmail: "მეილის კოპირება",
+                expYears: "წლიანი გამოცდილება",
+                featuredApps: "რჩეული აპლიკაცია",
+                codeQuality: "კოდის მაღალი ხარისხი",
+                quote: '"დიდი პროდუქტები იწყება გაბედული იდეებით. საუკეთესო საიტები დაუვიწყარი გამოცდილებაა."',
+                projectsTitle: "ჩემი პროექტები",
+                projectsSubtitle: "2 მთავარი ფლაგმანური პროექტი განსაკუთრებული აქცენტით და დინამიკური ვებ-აპლიკაციები.",
+                aboutTitle: "ჩემ შესახებ",
+                aboutSub: "მოტივირებული Junior Full-Stack დეველოპერი",
+                aboutText1: "ვარ ამბიციური Full-Stack დეველოპერი და IT სტუდენტი, ვებ-აპლიკაციების შექმნის 3-წლიანი პრაქტიკული გამოცდილებით იდეიდან რეალიზაციამდე.",
+                aboutText2: "ჩემი უნარები მოიცავს როგორც Frontend-ს (React, ES6+, Tailwind), ისე Backend ინჟინერიას (Node.js, Express, Python, SQL). ჩემი მიზანია სუფთა, მასშტაბირებადი კოდის წერა და მომხმარებლის საუკეთესო გამოცდილების შექმნა.",
+                techTitle: "ტექნოლოგიური სტეკი",
+                techAll: "ყველა ტექნოლოგია",
+                techFront: "Frontend",
+                techBack: "Backend & ბაზები",
+                techTools: "ხელსაწყოები & UI",
+                terminalTitle: "ინტერაქტიული ტერმინალი",
+                terminalDesc: "აკრიფეთ 'help' ბრძანებების სანახავად.",
+                contactTitle: "დამიკავშირდით",
+                contactInfo: "საკონტაქტო ინფორმაცია",
+                sendMsg: "შეტყობინების გაგზავნა",
+                phrases: [
+                    'იდეებს აქცევს ინტერაქტიულ რეალობად.',
+                    'ქმნის სრულყოფილ Full-Stack პლატფორმებს.',
+                    'წერს სუფთა და მასშტაბირებად კოდს.',
+                    'ქმნის თანამედროვე მომხმარებლის გამოცდილებას.'
+                ]
+            }
+        };
 
-    <div class="techstuck">
+        let currentLang = 'en';
+        let phrases = translations.en.phrases;
+        let pIdx = 0, cIdx = 0, isDeleting = false;
 
-       <div class="techStuckText" >
-        <h1 class="hh3">My Tech Stack</h1>
-       </div>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
+            startTypingEffect();
+        });
 
-       <div class="techStucks">
-         <img src="assets/icons/html.png" class="tech-icon pos1" alt="HTML">
-         <img src="assets/icons/css-3.png" class="tech-icon pos2" alt="CSS">
-         <img src="assets/icons/js.png" class="tech-icon pos3" alt="JavaScript">
-         <img src="assets/icons/React.png" class="tech-icon pos4" alt="React">
-         <img src="assets/icons/typescript.png" class="tech-icon pos5" alt="Typescript">
-         <img src="assets/icons/figma.png" class="tech-icon pos6" alt="Figma">
-       </div>
-    </div>
+        // Language Toggle Function
+        function toggleLanguage() {
+            currentLang = currentLang === 'en' ? 'ka' : 'en';
+            document.getElementById('langLabel').textContent = currentLang === 'en' ? 'KA' : 'EN';
+            
+            document.body.classList.add('transition-opacity', 'duration-300', 'opacity-90');
+            
+            setTimeout(() => {
+                updateDOMTexts();
+                document.body.classList.remove('opacity-90');
+            }, 150);
+        }
 
-    <section id="contact" class="about">
-    <div class="contact-box">
-      <div class="contact-box-text">
-        <h1 class="hh4">Contact</h1>
-      </div>
+        function updateDOMTexts() {
+            const t = translations[currentLang];
+            
+            const elementsMap = {
+                'nav-about': t.aboutNav,
+                'nav-projects': t.projectsNav,
+                'nav-tech': t.techNav,
+                'nav-terminal': t.terminalNav,
+                'nav-contact': t.contactNav,
+                'btn-hire': t.hireMe,
+                'text-status': t.status,
+                'text-hello': t.hello,
+                'text-prefix': t.subtitlePrefix,
+                'text-desc': t.desc,
+                'btn-view-projects': t.viewProjects,
+                'btn-contact-me': t.contactMe,
+                'btn-copy-email': t.copyEmail,
+                'stat-exp': t.expYears,
+                'stat-apps': t.featuredApps,
+                'stat-quality': t.codeQuality,
+                'text-quote': t.quote,
+                'title-projects': t.projectsTitle,
+                'subtitle-projects': t.projectsSubtitle,
+                'title-about': t.aboutTitle,
+                'sub-about': t.aboutSub,
+                'about-text-1': t.aboutText1,
+                'about-text-2': t.aboutText2,
+                'title-tech': t.techTitle,
+                'tech-all': t.techAll,
+                'tech-front': t.techFront,
+                'tech-back': t.techBack,
+                'tech-tools': t.techTools,
+                'title-terminal': t.terminalTitle,
+                'desc-terminal': t.terminalDesc,
+                'title-contact': t.contactTitle,
+                'info-contact': t.contactInfo,
+                'btn-send-msg': t.sendMsg
+            };
 
-      <div class="contact-box-paragraph">
-      <p class="pp1">  
-       Want a high-quality website? Let’s create something special — leave a message. <br> 
-   <span class="span2">  avtobagaturia21@gmail.com </span> 
-        </p>
-      </div>
+            for (let id in elementsMap) {
+                const el = document.getElementById(id);
+                if (el) el.textContent = elementsMap[id];
+            }
 
-      <div class="social-media">
-        <a href="https://github.com/avto2006" target="_blank">   <img class="git" src="assets/icons/github (3).png" alt="githubLogo"> </a>
-         <a href="https://www.linkedin.com/in/avto-bagaturia-709195360/" class="In" target="_blank" ><img src="assets/icons/linkedin.png" alt="LinkedlinLogo" class="in"></a>
-         <a href="https://www.facebook.com/atuk.a.baghaturia" target="_blank"> <img src="assets/icons/facebook (1).png" alt="facebookLogo" class="fb"> </a>
-        <a href="https://www.instagram.com/avto_.63/" target="_blank" >   <img src="assets/icons/instagram (3).png" alt="instagramLogo" class="inst"> </a>
-      </div>
+            phrases = t.phrases;
+            pIdx = 0;
+            cIdx = 0;
+            isDeleting = false;
+        }
 
+        // Mobile Nav Toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        if (mobileMenuBtn && mobileMenu) {
+            mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+            document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+        }
 
-    </div>
-    </section>
-    </section>
+        // Scroll Progress Bar
+        window.addEventListener('scroll', () => {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            document.getElementById('scrollProgress').style.width = ((winScroll / height) * 100) + '%';
+        });
 
+        // Dynamic Hero Typing Effect
+        function startTypingEffect() {
+            const target = document.getElementById('typingText');
+            if (!target) return;
+            const current = phrases[pIdx];
 
+            target.textContent = isDeleting ? current.substring(0, cIdx - 1) : current.substring(0, cIdx + 1);
+            cIdx = isDeleting ? cIdx - 1 : cIdx + 1;
 
-    <script src="main.js"></script>
+            let speed = isDeleting ? 35 : 75;
+            if (!isDeleting && cIdx === current.length) {
+                speed = 2200;
+                isDeleting = true;
+            } else if (isDeleting && cIdx === 0) {
+                isDeleting = false;
+                pIdx = (pIdx + 1) % phrases.length;
+                speed = 400;
+            }
+
+            setTimeout(startTypingEffect, speed);
+        }
+
+        // Skill Filters
+        function filterTech(category) {
+            document.querySelectorAll('.tech-filter-btn').forEach(btn => {
+                if (btn.getAttribute('data-category') === category) {
+                    btn.classList.add('border-indigo-500/50', 'text-white');
+                    btn.classList.remove('border-slate-700', 'text-slate-400');
+                } else {
+                    btn.classList.remove('border-indigo-500/50', 'text-white');
+                    btn.classList.add('border-slate-700', 'text-slate-400');
+                }
+            });
+
+            document.querySelectorAll('.tech-item').forEach(item => {
+                item.style.display = (category === 'all' || item.getAttribute('data-cat') === category) ? 'flex' : 'none';
+            });
+        }
+
+        // Copy Email and Toast
+        function copyEmail() {
+            const email = "avtobagaturia21@gmail.com";
+            const temp = document.createElement("input");
+            temp.value = email;
+            document.body.appendChild(temp);
+            temp.select();
+            document.execCommand("copy");
+            document.body.removeChild(temp);
+            showToast(currentLang === 'ka' ? "ელ-ფოსტა დაკოპირდა!" : "Email copied to clipboard!");
+        }
+
+        function showToast(msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toastMsg').textContent = msg;
+            toast.classList.remove('translate-y-20', 'opacity-0', 'pointer-events-none');
+            toast.classList.add('translate-y-0', 'opacity-100');
+            setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0', 'pointer-events-none');
+                toast.classList.remove('translate-y-0', 'opacity-100');
+            }, 3000);
+        }
+
+        // Terminal Commands
+        function handleTerminalCommand(e) {
+            e.preventDefault();
+            const input = document.getElementById('terminalInput');
+            const output = document.getElementById('terminalOutput');
+            const cmd = input.value.trim().toLowerCase();
+            if (!cmd) return;
+
+            const uLine = document.createElement('div');
+            uLine.className = 'text-slate-400';
+            uLine.innerHTML = `<span class="text-emerald-400">avtandil$&nbsp;</span>${escapeHTML(cmd)}`;
+            output.appendChild(uLine);
+
+            const resp = document.createElement('div');
+            resp.className = 'text-slate-200 pl-3 border-l-2 border-indigo-500/50';
+
+            switch (cmd) {
+                case 'help':
+                    resp.innerHTML = `Available commands:<br>- <span class="text-indigo-400">about</span>: Short developer summary<br>- <span class="text-indigo-400">skills</span>: Primary technologies<br>- <span class="text-indigo-400">projects</span>: All 5 active web applications<br>- <span class="text-indigo-400">contact</span>: Email & location info`;
+                    break;
+                case 'about':
+                    resp.textContent = currentLang === 'ka' ? "ავთანდილ ბაგათურია - Full-Stack დეველოპერი 3-წლიანი გამოცდილებით (React, Node.js, Express, Python, SQL)." : "Avtandil Bagaturia - Full-Stack Developer & IT student with 3 years experience in JavaScript, React, Node.js, Express, Python & SQL.";
+                    break;
+                case 'skills':
+                    resp.textContent = "React.js, JavaScript (ES6+), TypeScript, Node.js, Express, Python, SQL, HTML5, CSS3, Tailwind CSS, Figma.";
+                    break;
+                case 'projects':
+                    resp.textContent = "Featured: 1. Sport News App | 2. NextGen Robots Portal. Additional: 3. Gourmet Dining | 4. Weather App | 5. Word Scramble Game.";
+                    break;
+                case 'contact':
+                    resp.textContent = "Email: avtobagaturia21@gmail.com | Location: Tbilisi, Georgia";
+                    break;
+                default:
+                    resp.innerHTML = `<span class="text-rose-400">Command '${escapeHTML(cmd)}' not found. Type <span class="text-emerald-400">help</span> for assistance.</span>`;
+            }
+
+            output.appendChild(resp);
+            output.scrollTop = output.scrollHeight;
+            input.value = '';
+        }
+
+        function clearTerminal() {
+            document.getElementById('terminalOutput').innerHTML = '<div class="text-emerald-400">Terminal cleared. Type help for commands.</div>';
+        }
+
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag));
+        }
+
+        function handleFormSubmit(e) {
+            e.preventDefault();
+            showToast(currentLang === 'ka' ? "შეტყობინება წარმატებით გაიგზავნა!" : "Message sent successfully!");
+            e.target.reset();
+        }
+    </script>
 </body>
 </html>
