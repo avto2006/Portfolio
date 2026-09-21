@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Avtandil Bagaturia | Full-Stack Developer</title>
+
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -94,6 +96,55 @@
             transform: translateY(-4px) scale(1.005);
         }
 
+        /* სტანდარტული კურსორის დამალვა */
+body, a, button, input, textarea {
+    cursor: none !important;
+}
+
+/* ცენტრალური ნეონის წერტილი */
+.custom-cursor-dot {
+    width: 8px;
+    height: 8px;
+    background-color: #10b981; /* Emerald მნათობი */
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9999;
+    box-shadow: 0 0 10px #10b981, 0 0 20px #10b981;
+    transition: transform 0.15s ease-out, background-color 0.2s;
+    transform: translate(-50%, -50%);
+}
+
+/* გარე მიმდევარი წრე */
+.custom-cursor-ring {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid rgba(99, 102, 241, 0.6); /* Indigo Border */
+    border-radius: 50%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 9998;
+    transition: transform 0.25s cubic-bezier(0.23, 1, 0.32, 1), border-color 0.2s, background-color 0.2s;
+    transform: translate(-50%, -50%);
+}
+
+/* ეფექტი ღილაკებზე/ბმულებზე მიტანისას (Hover Effect) */
+body.hovering .custom-cursor-dot {
+    background-color: #6366f1;
+    transform: translate(-50%, -50%) scale(1.5);
+    box-shadow: 0 0 15px #6366f1;
+}
+
+body.hovering .custom-cursor-ring {
+    border-color: #10b981;
+    background: rgba(16, 185, 129, 0.1);
+    transform: translate(-50%, -50%) scale(1.4);
+}
+
         .bg-grid-pattern {
             background-size: 36px 36px;
             background-image: 
@@ -117,6 +168,9 @@
     </style>
 </head>
 <body class="relative min-h-screen text-slate-100 selection:bg-indigo-500 selection:text-white">
+
+    <div class="custom-cursor-dot" id="cursorDot"></div>
+    <div class="custom-cursor-ring" id="cursorRing"></div>
 
     <!-- Background Ambient Glow -->
     <div class="fixed inset-0 pointer-events-none z-0">
@@ -942,6 +996,24 @@
             cIdx = 0;
             isDeleting = false;
         }
+
+        const dot = document.getElementById('cursorDot');
+const ring = document.getElementById('cursorRing');
+
+window.addEventListener('mousemove', (e) => {
+    // წერტილის და წრის მოძრაობა თაგვის კოორდინატებზე
+    dot.style.left = `${e.clientX}px`;
+    dot.style.top = `${e.clientY}px`;
+    
+    ring.style.left = `${e.clientX}px`;
+    ring.style.top = `${e.clientY}px`;
+});
+
+// ღილაკებზე/ბმულებზე მიტანისას კურსორის გადიდება
+document.querySelectorAll('a, button, input, textarea, .glass-card, .featured-hero-card').forEach(el => {
+    el.addEventListener('mouseenter', () => document.body.classList.add('hovering'));
+    el.addEventListener('mouseleave', () => document.body.classList.remove('hovering'));
+});
 
         // Mobile Nav Toggle
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
