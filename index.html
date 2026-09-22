@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="./assets/icons/logo.png">
     <title>Avtandil Bagaturia | Full-Stack Developer</title>
 
     
@@ -326,7 +327,7 @@ body.hovering .custom-cursor-ring {
                         <img src="./assets/images/myPhoto.png" 
                              alt="Avtandil Bagaturia" 
                              class="w-full h-full object-cover object-top filter brightness-105 contrast-105 transition-transform duration-700 group-hover:scale-105"
-                             onerror="this.onerror=null; this.src='assets/images/download__2_-removebg-preview.png';" />
+                             onerror="this.onerror=null; this.src='./assets/images/myAlt.jpg';" />
                         
                         <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent"></div>
 
@@ -393,6 +394,7 @@ body.hovering .custom-cursor-ring {
                             </div>
 
                             <div class="flex items-center gap-3">
+                                
                                 <a href="https://avto2006.github.io/Sport-News/" target="_blank" rel="noopener noreferrer" class="flex-1 py-3 px-5 rounded-xl bg-gradient-to-r from-indigo-600 to-emerald-500 hover:from-indigo-500 hover:to-emerald-400 text-white font-semibold text-xs uppercase tracking-wider text-center flex items-center justify-center gap-2 shadow-lg transition-all">
                                     <i data-lucide="external-link" class="w-4 h-4"></i> Launch Live Site
                                 </a>
@@ -771,18 +773,28 @@ body.hovering .custom-cursor-ring {
                     <div class="pt-4 border-t border-slate-800">
                         <div class="text-xs text-slate-400 mb-3">Social Channels</div>
                         <div class="flex items-center gap-3">
+                            
                             <a href="https://github.com/avto2006" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-slate-300 hover:text-white hover:border-indigo-500/50 transition-all">
+                                <img  src="./assets/icons/github.png" alt="">
                                 <i data-lucide="github" class="w-5 h-5"></i>
                             </a>
-                            <a href="https://www.linkedin.com/in/avto-bagaturia-709195360/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 transition-all">
+                            <a href="https://www.linkedin.com/in/avtandil-bagaturia-709195360/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-slate-300 hover:text-cyan-400 hover:border-cyan-500/50 transition-all">
+                                <img src="./assets/icons/linkedin.png" alt="">
                                 <i data-lucide="linkedin" class="w-5 h-5"></i>
                             </a>
                             <a href="https://www.facebook.com/atuk.a.baghaturia" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-slate-300 hover:text-blue-400 hover:border-blue-500/50 transition-all">
+                                <img src="./assets//icons/mainFac.png" alt="">
                                 <i data-lucide="facebook" class="w-5 h-5"></i>
                             </a>
-                            <a href="https://www.instagram.com/avto_.63/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-500/50 transition-all">
+                            <a href="https://www.instagram.com/_avttoo/" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl glass-card flex items-center justify-center text-slate-300 hover:text-pink-400 hover:border-pink-500/50 transition-all">
+                                <img  src="./assets/icons/instagram (1).png" alt="">
                                 <i data-lucide="instagram" class="w-5 h-5"></i>
                             </a>
+                           <a href="https://www.tiktok.com/@avtoo_tech" target="_blank" rel="noopener noreferrer" class="w-11 h-11 rounded-xl glass-card bg-black flex items-center justify-center border border-slate-800 hover:border-white-500/50 hover:-translate-y-1 transition-all">
+    <svg class="w-6 h-6 fill-white" viewBox="0 0 24 24">
+        <path d="M19.589 6.686a4.793 4.793 0 0 1-3.77-4.245V2h-3.445v13.672a2.896 2.896 0 0 1-5.201 1.743 2.893 2.893 0 0 1 2.313-4.632c.311 0 .614.05.901.143V9.418a6.332 6.332 0 0 0-.901-.065 6.338 6.338 0 1 0 6.338 6.338V9.018a8.216 8.216 0 0 0 4.765 1.517v-3.85a4.78 4.78 0 0 1-1.001.001z"/>
+    </svg>
+</a>
                         </div>
                     </div>
                 </div>
@@ -1113,7 +1125,7 @@ document.querySelectorAll('a, button, input, textarea, .glass-card, .featured-he
                     resp.innerHTML = `Available commands:<br>- <span class="text-indigo-400">about</span>: Short developer summary<br>- <span class="text-indigo-400">skills</span>: Primary technologies<br>- <span class="text-indigo-400">projects</span>: All 5 active web applications<br>- <span class="text-indigo-400">contact</span>: Email & location info`;
                     break;
                 case 'about':
-                    resp.textContent = currentLang === 'ka' ? "ავთანდილ ბაგათურია - Full-Stack დეველოპერი 3-წლიანი გამოცდილებით (React, Node.js, Express, Python, SQL)." : "Avtandil Bagaturia - Full-Stack Developer & IT student with 3 years experience in JavaScript, React, Node.js, Express, Python & SQL.";
+                    resp.textContent = currentLang === 'ka' ? "ავთანდილ ბაღათურია - Full-Stack დეველოპერი 3-წლიანი გამოცდილებით (React, Node.js, Express, Python, SQL)." : "Avtandil Bagaturia - Full-Stack Developer & IT student with 3 years experience in JavaScript, React, Node.js, Express, Python & SQL.";
                     break;
                 case 'skills':
                     resp.textContent = "React.js, JavaScript (ES6+), TypeScript, Node.js, Express, Python, SQL, HTML5, CSS3, Tailwind CSS, Figma.";
